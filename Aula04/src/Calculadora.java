@@ -44,7 +44,7 @@ public class Calculadora {
                     System.out.printf("%.2f",resDiv);  
                     break; 
                 case 0: // Sair
-                    System.out.println("Encerrando.");              
+                    System.out.println("Encerrando...");              
                 break;   
 
                 default:
