@@ -39,6 +39,10 @@ public class Calculadora {
                     resDiv = (double)primeiro / (double)segundo;
                     System.out.printf("%.2f",resDiv);  
                     break; 
+                case 5: // Potenciação
+                    resDiv = Math.pow(primeiro, segundo);
+                    System.out.printf("%.2f",resDiv);  
+                    break; 
                 case 0: // Sair
                     System.out.println("Encerrando.");              
                 break;   
