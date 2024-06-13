@@ -6,7 +6,6 @@ public class Aluno {
     private double nota1;
     private double nota2;
 
-    
     public Aluno(String nome, int idade, double nota1, double nota2) {
         this.setNome(nome);
         this.setIdade(idade);
