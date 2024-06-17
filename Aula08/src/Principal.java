@@ -2,9 +2,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Principal {
-    public static void main(String[] args) throws Exception {
-        // Criar Cliente (comprou oque, vendedor, gerente que atendeu)
-
+    public static void main(String[] args) throws Exception {      
         Calendar c = Calendar.getInstance();
         Date data = c.getTime();
 
