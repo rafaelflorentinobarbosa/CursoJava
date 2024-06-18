@@ -1,7 +1,7 @@
 package controle;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Pao extends Produto {
     private String tipoPao;
@@ -16,13 +16,20 @@ public class Pao extends Produto {
 
     //Sobrescrita de Metodo
     @Override
-    @SuppressWarnings("deprecation")
-    public String validade(Date fabricacao){
-        SimpleDateFormat fs = new SimpleDateFormat("dd/MM/yyyy");
-       
-        fabricacao.setDate(fabricacao.getDate() + 1);
+    public void verificaValidade(LocalDate vencimento){
+        LocalDate atual =  LocalDate.now();
+        long diffEmDias = ChronoUnit.DAYS.between(vencimento, atual);
 
-        return fs.format(fabricacao);
+        if(vencimento.isAfter(atual)){
+            System.out.println("Pao Dentro da validade");
+            System.out.println("Falta: "+(diffEmDias*-1)+" dias para o Pao vencer.");
+        }else if(atual.isAfter(vencimento)){
+            System.out.println("Pao vencido");
+            System.out.println("Há: "+(diffEmDias*-1)+" dias.");
+        }
+        else{
+             System.out.println("Pao vence hoje.");
+        }
     }
     
 

@@ -1,13 +1,27 @@
 package controle;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Produto {
     private String nome;
     private int quantidade;
     private double valor;
+    private LocalDate dataFabricacao;
+    private LocalDate dataValidade;
 
+    
+    public LocalDate getDataFabricacao() {
+        return dataFabricacao;
+    }
+    public void setDataFabricacao(LocalDate dataFabricacao) {
+        this.dataFabricacao = dataFabricacao;
+    }
+    public LocalDate getDataValidade() {
+        return dataValidade;
+    }
+    public void setDataValidade(LocalDate dataValidade) {
+        this.dataValidade = dataValidade;
+    }
     public String getNome() {
         return nome;
     }
@@ -27,32 +41,51 @@ public class Produto {
         this.valor = valor;
     }
 
-    @SuppressWarnings("deprecation")
-    public String validade(Date fabricacao){
-        SimpleDateFormat fs = new SimpleDateFormat("dd/MM/yyyy");
-       
-        fabricacao.setDate(fabricacao.getDate() + 180);
+    // Metodo verificaValidade com sobrecarga (3 possibiliades de entrada)
 
-        return fs.format(fabricacao);
+    public void verificaValidade(LocalDate vencimento){
+        LocalDate atual =  LocalDate.now();
+        long diffEmDias = ChronoUnit.DAYS.between(vencimento, atual);
+
+        if(vencimento.isAfter(atual)){
+            System.out.println("Produto Dentro da validade");
+            System.out.println("Falta: "+(diffEmDias*-1)+" dias para o produto vencer.");
+        }else if(atual.isAfter(vencimento)){
+            System.out.println("Produto vencido");
+            System.out.println("Há: "+(diffEmDias*-1)+" dias.");
+        }
+        else{
+             System.out.println("Produto vence hoje.");
+        }
     }
 
-    @SuppressWarnings("deprecation")
-    public String validade(Date fabricacao, Date validade){
-        
-        SimpleDateFormat fs = new SimpleDateFormat("dd/MM/yyyy");
-       
-        fabricacao.setDate(validade.getDate() );
+    public void verificaValidade(LocalDate vencimento, LocalDate atual){
+        long diffEmDias = ChronoUnit.DAYS.between(vencimento, atual);
 
-        return fs.format(fabricacao);
+        if(vencimento.isAfter(atual)){
+            System.out.println("Produto Dentro da validade");
+            System.out.println("Falta: "+(diffEmDias*-1)+" dias para o produto vencer.");
+        }else if(atual.isAfter(vencimento)){
+            System.out.println("Produto vencido");
+            System.out.println("Há: "+(diffEmDias*-1)+" dias.");
+        }
+        else{
+             System.out.println("Produto vence hoje.");
+        }
     }
-    
-    @SuppressWarnings("deprecation")
-    public String validade(Date fabricacao, Date validade, Date validadeAposAberto){
-        
-        SimpleDateFormat fs = new SimpleDateFormat("dd/MM/yyyy");
-       
-        fabricacao.setDate(fabricacao.getDate() + 7);
 
-        return fs.format(fabricacao);
+    public void verificaValidade(LocalDate vencimento, LocalDate atual, LocalDate vencimentoAberto ){
+        long diffEmDias = ChronoUnit.DAYS.between(vencimento, atual);
+
+        if(vencimento.isAfter(atual)){
+            System.out.println("Produto Dentro da validade");
+            System.out.println("Falta: "+(diffEmDias*-1)+" dias para o produto vencer.");
+        }else if(atual.isAfter(vencimento)){
+            System.out.println("Produto vencido");
+            System.out.println("Há: "+(diffEmDias*-1)+" dias.");
+        }
+        else{
+             System.out.println("Produto vence hoje.");
+        }
     }
 }

@@ -1,7 +1,7 @@
 package controle;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Peta extends Produto{
     private String sabor;
@@ -15,13 +15,20 @@ public class Peta extends Produto{
     }
 
     @Override
-    @SuppressWarnings("deprecation")
-    public String validade(Date fabricacao){
-        SimpleDateFormat fs = new SimpleDateFormat("dd/MM/yyyy");
-       
-        fabricacao.setDate(fabricacao.getDate() + 30);
+    public void verificaValidade(LocalDate vencimento){
+        LocalDate atual =  LocalDate.now();
+        long diffEmDias = ChronoUnit.DAYS.between(vencimento, atual);
 
-        return fs.format(fabricacao);
+        if(vencimento.isAfter(atual)){
+            System.out.println("Peta Dentro da validade");
+            System.out.println("Falta: "+(diffEmDias*-1)+" dias para o Peta vencer.");
+        }else if(atual.isAfter(vencimento)){
+            System.out.println("Peta vencido");
+            System.out.println("Há: "+(diffEmDias*-1)+" dias.");
+        }
+        else{
+             System.out.println("Peta vence hoje.");
+        }
     }
 
 }
