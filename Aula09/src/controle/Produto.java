@@ -41,7 +41,7 @@ public class Produto {
         this.valor = valor;
     }
 
-    // Metodo verificaValidade com sobrecarga (3 possibiliades de entrada)
+    // Metodo verificaValidade com sobrecarga (3 possibilidades de entrada)
 
     public void verificaValidade(LocalDate vencimento){
         LocalDate atual =  LocalDate.now();

@@ -13,6 +13,14 @@ public class Pao extends Produto {
     public void setTipoPao(String tipoPao) {
         this.tipoPao = tipoPao;
     }
+    public Pao() {
+        
+    }
+    
+    public Pao(String tipoPao) {
+        setTipoPao(tipoPao);
+    }
+
 
     //Sobrescrita de Metodo
     @Override
@@ -32,7 +40,6 @@ public class Pao extends Produto {
         }
     }
     
-
     // Sobrecarga de Metodo
     public double venda(int pacote){
         return pacote * 6.70;   
