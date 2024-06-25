@@ -58,6 +58,22 @@ public class ManipuladorArquivos {
 
     }
 
+        // Método de leitura
+        public static void leitura2(String caminho) throws IOException{
+            BufferedReader buff = new BufferedReader(new FileReader(caminho));
+            String linha = "";
+    
+            while(true){
+                if (linha != null) 
+                    System.out.println(linha);
+                else
+                    break;
+                linha = buff.readLine();            
+            }
+    
+            buff.close();
+        }
+
 
 }
 
