@@ -59,7 +59,7 @@ public class ManipuladorArquivos {
     }
 
         // Método de leitura
-        public static void leitura2(String caminho) throws IOException{
+        public static void leituraTabuada(String caminho) throws IOException{
             BufferedReader buff = new BufferedReader(new FileReader(caminho));
             String linha = "";
     
@@ -74,6 +74,22 @@ public class ManipuladorArquivos {
             buff.close();
         }
 
+
+    // Metodo escritaTabuadaInvertida
+
+    public static void escritaTabuadaInvertida(String caminho, String texto) throws IOException{
+
+        try {     
+            BufferedWriter writer = new BufferedWriter(new FileWriter(caminho, true));
+            Scanner entrada = new Scanner(System.in);
+            writer.append(texto +"\n");
+            writer.close();
+            entrada.close();     
+
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+    }
 
 }
 
