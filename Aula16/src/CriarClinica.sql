@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS tb_consulta (
 	CONSTRAINT consulta_paciente_fk FOREIGN KEY(id_paciente) REFERENCES tb_paciente(id_paciente) ON DELETE CASCADE
 )ENGINE = INNODB;
 
-CREATE TABLE tb_telefone(
+CREATE TABLE IF NOT EXISTS tb_telefone(
 	numero_telefone DECIMAL(11) NOT NULL,
     id_paciente INT NOT NULL,
     CONSTRAINT numero_telefone_uk UNIQUE(numero_telefone, id_paciente),
@@ -46,7 +46,7 @@ CREATE TABLE tb_telefone(
 )ENGINE = INNODB;
 
 
-CREATE TABLE tb_medico_especialidade(
+CREATE TABLE IF NOT EXISTS tb_medico_especialidade(
 	id_especialidade INT NOT NULL,
     numero_crm BIGINT NOT NULL,
     estado_crm CHAR(2) NOT NULL,
@@ -55,4 +55,18 @@ CREATE TABLE tb_medico_especialidade(
     CONSTRAINT especialidade_medico_especialidade_fk FOREIGN KEY(id_especialidade) REFERENCES tb_especialidade(id_especialidade) ON DELETE CASCADE
 )ENGINE = INNODB;
 
-# DROP TABLE tb_medico_especialidade;
+CREATE TABLE IF NOT EXISTS tb_receita(
+	id_receita INT NOT NULL AUTO_INCREMENT,
+    descricao VARCHAR(200),
+    id_consulta INT NOT NULL,
+    CONSTRAINT id_receita_pk PRIMARY KEY(id_receita),
+    CONSTRAINT id_consulta_fk FOREIGN KEY(id_consulta) REFERENCES tb_consulta(id_consulta) ON DELETE CASCADE
+)ENGINE = INNODB;
+
+CREATE TABLE IF NOT EXISTS medicamento_prescrito(
+	nome_medicamento 	VARCHAR(50) NOT NULL,
+    id_receita INT NOT NULL,
+    CONSTRAINT id_receita_fk FOREIGN KEY(id_receita) REFERENCES tb_consulta(id_consulta) ON DELETE CASCADE
+)ENGINE = INNODB;
+
+# DROP TABLE tb_receita;
