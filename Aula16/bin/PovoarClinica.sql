@@ -43,5 +43,19 @@ VALUES (1, 451247, 'df'),
        (4, 471586, 'go');
 SELECT * FROM tb_medico_especialidade;
 
+INSERT INTO tb_receita(id_consulta, descricao)
+VALUES(1, 'Tomar em Jejum'),
+	  (2, 'Tomas depois do café'),
+	  (3, 'Repouso'),
+	  (4, 'Igerir líquidos');
+SELECT * FROM tb_receita;
+
+INSERT INTO medicamento_prescrito(nome_medicamento, id_receita)
+VALUES ("Doralgina", 1),
+	   ("Ritalina", 2),
+	   ("Dipirona", 3),
+       ("Omeprazol", 4);
+SELECT * FROM medicamento_prescrito;
+
 # DROP TABLE tb_especialidade;
 # DROP DATABASE clinica;
