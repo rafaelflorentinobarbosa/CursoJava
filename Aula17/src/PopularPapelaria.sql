@@ -56,6 +56,7 @@ VALUES	('12345678000100', 'Fornecedor A', 1122334455, 'Rua A, 123'),
 		('99001122300099', 'Fornecedor R', 6655443322, 'Viela R, 234'),
 		('33445566700100', 'Fornecedor S', 9988776655, 'Rua S, 345'),
 		('11223344500111', 'Fornecedor T', 1122334455, 'Av. T, 456');
+SELECT * FROM db_papelaria.tb_fornecedor;
 
 INSERT INTO tb_produto (preco, validade, nome, descricao, quantidade, cnpj_fornecedor) 
 VALUES	(10.50, '2025-06-30', 'Caneta Esferográfica Azul', 'Caneta esferográfica de ponta média, tinta azul.', 100, '12345678000100'),
