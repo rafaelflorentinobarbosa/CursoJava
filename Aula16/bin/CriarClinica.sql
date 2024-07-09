@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS tb_receita(
 )ENGINE = INNODB;
 
 CREATE TABLE IF NOT EXISTS medicamento_prescrito(
-	nome_medicamento 	VARCHAR(50) NOT NULL,
+	nome_medicamento VARCHAR(50) NOT NULL,
     id_receita INT NOT NULL,
     CONSTRAINT id_receita_fk FOREIGN KEY(id_receita) REFERENCES tb_consulta(id_consulta) ON DELETE CASCADE
 )ENGINE = INNODB;
