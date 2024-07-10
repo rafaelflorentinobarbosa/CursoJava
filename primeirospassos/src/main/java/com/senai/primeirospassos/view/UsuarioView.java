@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.senai.primeirospassos.model.Usuario;
-import com.sun.source.doctree.SystemPropertyTree;
 
 @Repository
 public class UsuarioView {
@@ -19,6 +18,7 @@ public class UsuarioView {
     public List<Usuario> listAll(){
         List <Usuario> usuarios = new ArrayList<Usuario>();
         usuarios.add(new Usuario ("Damarcones", "1234"));
+        usuarios.add(new Usuario ("maria", "5678"));
         return usuarios;
     }
 }
