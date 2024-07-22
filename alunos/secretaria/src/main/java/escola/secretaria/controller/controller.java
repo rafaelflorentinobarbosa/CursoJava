@@ -1,4 +1,4 @@
-package escola.secretaria.controller;
+package escola.secretaria.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
