@@ -2,10 +2,8 @@
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
@@ -121,7 +119,9 @@ public class MenuPrincipal extends JFrame {
     }
 
     private void listarDespesa(ActionEvent actionEvent){
-        JOptionPane.showMessageDialog(null," Lista das despesas", "Listar Despesas",JOptionPane.WARNING_MESSAGE);
+        new TelaListarDespesas();
+        dispose(); 
+        //JOptionPane.showMessageDialog(null," Lista das despesas", "Listar Despesas",JOptionPane.WARNING_MESSAGE);
     }
 
     private void sair(ActionEvent actionEvent){
