@@ -2,19 +2,21 @@ public class Despesa {
     private String nome;
     private float valor;
     private String placa;
+    private String categoria;
     private String descricao;
 
-    public Despesa(String nome, float valor, String placa, String descricao) {
+    public Despesa(String nome, float valor, String placa, String categoria, String descricao) {
         setNome(nome);
         setValor(valor);
         setPlaca(placa);
+        setCategoria(categoria);
         setDescricao(descricao);
     }
 
     @Override
     public String toString() {
         return "Despesa [\nNome = " + getNome() + ",\nValor = " + getValor() + ",\nPlaca = " + getPlaca()
-                + ",\nDescrição = " + getDescricao() + " ]";
+                +  ",\nCategoria = " + getCategoria() + ",\nDescrição = " + getDescricao() + " ]";
     }
 
     public String getNome() {
@@ -40,6 +42,14 @@ public class Despesa {
     }
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     

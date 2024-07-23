@@ -1,17 +1,20 @@
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
-//import java.util.ArrayList;
-//import java.util.List;
+
 
 public class TelaCadastrarVeiculo extends JFrame {
 
     JTextField inputMarca, inputModelo, inputAnoFabricacao, inputAnoModelo, inputMotorizacao, inputCapacidadeTanque, inputCor, inputPlaca, inputRenavam; 
-    
+    Border border = BorderFactory.createLineBorder(Color.green,3);
+
     public TelaCadastrarVeiculo(){
 
     // Tela Frame configurações
@@ -147,6 +150,7 @@ public class TelaCadastrarVeiculo extends JFrame {
     buttonCadastrarVeiculo.setBackground(new Color(10, 10, 10));
     buttonCadastrarVeiculo.setForeground(Color.WHITE);
     buttonCadastrarVeiculo.setFocusable(false);
+    buttonCadastrarVeiculo.setBorder(border);
     add(buttonCadastrarVeiculo);
     
 
@@ -158,8 +162,8 @@ public class TelaCadastrarVeiculo extends JFrame {
     buttonVoltar.setBackground(new Color(10, 10, 10));
     buttonVoltar.setForeground(Color.WHITE);
     buttonVoltar.setFocusable(false);
+    buttonVoltar.setBorder(border);
     add(buttonVoltar);
-
 
     // Redirecionamentos botões
     
