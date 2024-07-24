@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
 
 public class TelaLancarDespesa extends JFrame  {
 
-       JTextField inputNomeDespesa, inputValorDespesa, inputPlacaDespesa;
+    JTextField inputNomeDespesa, inputValorDespesa, inputPlacaDespesa;
     JTextArea inputDescricaoDespesa;
     JComboBox<String> comboBoxCategoria;
     Border border = BorderFactory.createLineBorder(Color.green, 3);
@@ -27,57 +27,57 @@ public class TelaLancarDespesa extends JFrame  {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
-        setLayout(null);  // Usando layout nulo para posicionamento absoluto
+        setLayout(null); 
         setVisible(true);
 
         // Nome Despesa
         JLabel TextoNomeDespesa = new JLabel("Nome da despesa:");
         TextoNomeDespesa.setFont(new Font("SansSerif", Font.BOLD, 18));
-        TextoNomeDespesa.setBounds(50, 50, 200, 30);  // Definindo posição e tamanho
+        TextoNomeDespesa.setBounds(50, 50, 200, 30); 
         add(TextoNomeDespesa);
 
         inputNomeDespesa = new JTextField("");
         inputNomeDespesa.setFont(new Font("SansSerif", Font.ITALIC, 15));
-        inputNomeDespesa.setBounds(300, 50, 250, 35);  // Definindo posição e tamanho
+        inputNomeDespesa.setBounds(300, 50, 250, 35); 
         add(inputNomeDespesa);
 
         // Valor Despesa
         JLabel TextoValorDespesa = new JLabel("Valor da despesa:");
         TextoValorDespesa.setFont(new Font("SansSerif", Font.BOLD, 18));
-        TextoValorDespesa.setBounds(50, 100, 200, 30);  // Definindo posição e tamanho
+        TextoValorDespesa.setBounds(50, 100, 200, 30); 
         add(TextoValorDespesa);
 
         inputValorDespesa = new JTextField("");
         inputValorDespesa.setFont(new Font("SansSerif", Font.ITALIC, 15));
-        inputValorDespesa.setBounds(300, 100, 250, 35);  // Definindo posição e tamanho
+        inputValorDespesa.setBounds(300, 100, 250, 35); 
         add(inputValorDespesa);
 
         // Placa Veículo
         JLabel TextoPlacaDespesa = new JLabel("Placa do veículo:");
         TextoPlacaDespesa.setFont(new Font("SansSerif", Font.BOLD, 18));
-        TextoPlacaDespesa.setBounds(50, 150, 200, 30);  // Definindo posição e tamanho
+        TextoPlacaDespesa.setBounds(50, 150, 200, 30); 
         add(TextoPlacaDespesa);
 
         inputPlacaDespesa = new JTextField("");
         inputPlacaDespesa.setFont(new Font("SansSerif", Font.ITALIC, 15));
-        inputPlacaDespesa.setBounds(300, 150, 250, 35);  // Definindo posição e tamanho
+        inputPlacaDespesa.setBounds(300, 150, 250, 35); 
         add(inputPlacaDespesa);
 
         // Categoria
         JLabel TextoCategoriaDespesa = new JLabel("Categoria:");
         TextoCategoriaDespesa.setFont(new Font("SansSerif", Font.BOLD, 18));
-        TextoCategoriaDespesa.setBounds(50, 200, 200, 30);  // Definindo posição e tamanho
+        TextoCategoriaDespesa.setBounds(50, 200, 200, 30); 
         add(TextoCategoriaDespesa);
 
         comboBoxCategoria = new JComboBox<>(new String[]{"Manutenção", "Imposto", "Multa", "Outros"});
         comboBoxCategoria.setFont(new Font("SansSerif", Font.PLAIN, 15));
-        comboBoxCategoria.setBounds(300, 200, 250, 35);  // Definindo posição e tamanho
+        comboBoxCategoria.setBounds(300, 200, 250, 35); 
         add(comboBoxCategoria);
 
         // Descrição Despesa
         JLabel TextoDescricaoDespesa = new JLabel("Descrição da despesa:");
         TextoDescricaoDespesa.setFont(new Font("SansSerif", Font.BOLD, 18));
-        TextoDescricaoDespesa.setBounds(50, 250, 250, 30);  // Definindo posição e tamanho
+        TextoDescricaoDespesa.setBounds(50, 250, 250, 30); 
         add(TextoDescricaoDespesa);
 
         inputDescricaoDespesa = new JTextArea("");
@@ -85,7 +85,7 @@ public class TelaLancarDespesa extends JFrame  {
         inputDescricaoDespesa.setLineWrap(true);
         inputDescricaoDespesa.setWrapStyleWord(true);
         JScrollPane scrollPane = new JScrollPane(inputDescricaoDespesa);
-        scrollPane.setBounds(300, 250, 250, 100);  // Definindo posição e tamanho
+        scrollPane.setBounds(300, 250, 250, 100); 
         add(scrollPane);
 
         // Botão Cadastrar
@@ -95,7 +95,7 @@ public class TelaLancarDespesa extends JFrame  {
         buttonCadastrarVeiculo.setForeground(Color.WHITE);
         buttonCadastrarVeiculo.setBorder(border);
         buttonCadastrarVeiculo.setFocusable(false);
-        buttonCadastrarVeiculo.setBounds(150, 400, 150, 40);  // Definindo posição e tamanho
+        buttonCadastrarVeiculo.setBounds(150, 400, 150, 40); 
         buttonCadastrarVeiculo.addActionListener(this::cadastrarDespesa);
         add(buttonCadastrarVeiculo);
 
@@ -106,7 +106,7 @@ public class TelaLancarDespesa extends JFrame  {
         jButtonVoltar.setForeground(Color.WHITE);
         jButtonVoltar.setBorder(border);
         jButtonVoltar.setFocusable(false);
-        jButtonVoltar.setBounds(350, 400, 150, 40);  // Definindo posição e tamanho
+        jButtonVoltar.setBounds(350, 400, 150, 40); 
         jButtonVoltar.addActionListener(this::voltar);
         add(jButtonVoltar);
     }

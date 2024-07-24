@@ -3,20 +3,23 @@ public class Veiculo {
     private String modelo; 
     private int anoFabricacao;
     private int anoModelo;
-    private String motorizacao;
+    private double motorizacao;
     private double capacidadeTanque;
+    private String tipoCombustivel;
     private String cor;
     private String placa; 
     private String renavam;
 
-    public Veiculo(String marca, String modelo, int anoFabricacao, int anoModelo, String motorizacao,
-        double capacidadeTanque, String cor, String placa, String renavam) {
+
+    public Veiculo(String marca, String modelo, int anoFabricacao, int anoModelo, double motorizacao,
+        double capacidadeTanque, String tipoCombustivel, String cor, String placa, String renavam) {
         setMarca(marca);
         setModelo(modelo);
         setAnoFabricacao(anoFabricacao);
         setAnoModelo(anoModelo);
         setMotorizacao(motorizacao);
         setCapacidadeTanque(capacidadeTanque);
+        setTipoCombustivel(tipoCombustivel);
         setCor(cor);
         setPlaca(placa);
         setRenavam(renavam);
@@ -25,7 +28,7 @@ public class Veiculo {
     @Override
     public String toString() {
         return "Dados Veiculo [\nmarca = " + getMarca() + ", \nmodelo = " + getModelo() + ", \nanoFabricacao = " + getAnoFabricacao() + ", \nanoModelo = "
-                + getAnoModelo() + ", \nmotorizacao = " + getMotorizacao() + ", \ncapacidadeTanque = " + getCapacidadeTanque() + ", \ncor = " + getCor()
+                + getAnoModelo() + ", \nmotorizacao = " + getMotorizacao() + ", \ncapacidadeTanque = " + getCapacidadeTanque() + ", \ntipoCombustivel = " + getTipoCombustivel() + ", \ncor = " + getCor()
                 + ", \nplaca = " + getPlaca() + ", \nrenavam = " + getRenavam() + "]";
     }
 
@@ -53,10 +56,10 @@ public class Veiculo {
     public void setAnoModelo(int anoModelo) {
         this.anoModelo = anoModelo;
     }
-    public String getMotorizacao() {
+    public double getMotorizacao() {
         return motorizacao;
     }
-    public void setMotorizacao(String motorizacao) {
+    public void setMotorizacao(double motorizacao) {
         this.motorizacao = motorizacao;
     }
     public double getCapacidadeTanque() {
@@ -82,6 +85,14 @@ public class Veiculo {
     }
     public void setRenavam(String renavam) {
         this.renavam = renavam;
+    }
+
+    public String getTipoCombustivel() {
+        return tipoCombustivel;
+    }
+
+    public void setTipoCombustivel(String tipoCombustivel) {
+        this.tipoCombustivel = tipoCombustivel;
     } 
 
     

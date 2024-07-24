@@ -1,11 +1,11 @@
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
@@ -14,6 +14,7 @@ public class TelaCadastrarVeiculo extends JFrame {
 
     JTextField inputMarca, inputModelo, inputAnoFabricacao, inputAnoModelo, inputMotorizacao, inputCapacidadeTanque, inputCor, inputPlaca, inputRenavam; 
     Border border = BorderFactory.createLineBorder(Color.green,3);
+    JComboBox<String> tipoCombustivel;
 
     public TelaCadastrarVeiculo(){
 
@@ -27,9 +28,8 @@ public class TelaCadastrarVeiculo extends JFrame {
     setLocationRelativeTo(null);
     setLayout(null);
 
-    
     JLabel textoCadastroVeiculo = new JLabel("Cadastro Veiculo");
-    textoCadastroVeiculo.setBounds(300, 30, 250, 70);
+    textoCadastroVeiculo.setBounds(300, 10, 250, 70);
     textoCadastroVeiculo.setFont(new Font("SansSerif", Font.BOLD, 16));
     textoCadastroVeiculo.setForeground(Color.BLUE);
     add(textoCadastroVeiculo);
@@ -38,7 +38,7 @@ public class TelaCadastrarVeiculo extends JFrame {
 
     JLabel textoMarca = new JLabel("Marca: ");
     textoMarca.setBounds(190, 80, 250, 70);
-    textoMarca.setFont(new Font("SansSerif", Font.ITALIC, 15));
+    textoMarca.setFont(new Font("SansSerif", Font.BOLD, 18));
     add(textoMarca);
 
     inputMarca = new JTextField("");
@@ -49,8 +49,8 @@ public class TelaCadastrarVeiculo extends JFrame {
     // Modelo
 
     JLabel textoModelo = new JLabel("Modelo: ");
-    textoModelo.setBounds(185, 130, 250, 70);
-    textoModelo.setFont(new Font("SansSerif", Font.ITALIC, 15));
+    textoModelo.setBounds(175, 130, 250, 70);
+    textoModelo.setFont(new Font("SansSerif", Font.BOLD, 18));
     add(textoModelo);
 
     inputModelo = new JTextField("");
@@ -61,8 +61,8 @@ public class TelaCadastrarVeiculo extends JFrame {
     // Ano Fabricação
 
     JLabel textoAnoFabricacao = new JLabel("Ano Fabricacao: ");
-    textoAnoFabricacao.setBounds(130, 180, 250, 70);
-    textoAnoFabricacao.setFont(new Font("SansSerif", Font.ITALIC, 15));
+    textoAnoFabricacao.setBounds(105, 180, 250, 70);
+    textoAnoFabricacao.setFont(new Font("SansSerif", Font.BOLD, 18));
     add(textoAnoFabricacao);
 
     inputAnoFabricacao = new JTextField("");
@@ -73,8 +73,8 @@ public class TelaCadastrarVeiculo extends JFrame {
     // Ano Modelo
 
     JLabel textoAnoModelo = new JLabel("Ano Modelo: ");
-    textoAnoModelo.setBounds(150, 230, 250, 70);
-    textoAnoModelo.setFont(new Font("SansSerif", Font.ITALIC, 15));
+    textoAnoModelo.setBounds(135, 230, 250, 70);
+    textoAnoModelo.setFont(new Font("SansSerif", Font.BOLD, 18));
     add(textoAnoModelo);
 
     inputAnoModelo = new JTextField("");
@@ -86,7 +86,7 @@ public class TelaCadastrarVeiculo extends JFrame {
 
     JLabel textoMotorizacao = new JLabel("Motor: ");
     textoMotorizacao.setBounds(190, 280, 250, 70);
-    textoMotorizacao.setFont(new Font("SansSerif", Font.ITALIC, 15));
+    textoMotorizacao.setFont(new Font("SansSerif", Font.BOLD, 18));
     add(textoMotorizacao);
 
     inputMotorizacao = new JTextField("");
@@ -97,8 +97,8 @@ public class TelaCadastrarVeiculo extends JFrame {
     // Capacidade Tanque
 
     JLabel textoCapacidadeTanque = new JLabel("Capacidade Tanque: ");
-    textoCapacidadeTanque.setBounds(100, 330, 250, 70);
-    textoCapacidadeTanque.setFont(new Font("SansSerif", Font.ITALIC, 15));
+    textoCapacidadeTanque.setBounds(70, 330, 250, 70);
+    textoCapacidadeTanque.setFont(new Font("SansSerif", Font.BOLD, 18));
     add(textoCapacidadeTanque);
 
     inputCapacidadeTanque = new JTextField("");
@@ -109,8 +109,8 @@ public class TelaCadastrarVeiculo extends JFrame {
     // Cor
 
     JLabel textoCor = new JLabel("Cor: ");
-    textoCor.setBounds(200, 380, 250, 70);
-    textoCor.setFont(new Font("SansSerif", Font.ITALIC, 15));
+    textoCor.setBounds(210, 380, 250, 70);
+    textoCor.setFont(new Font("SansSerif", Font.BOLD, 18));
     add(textoCor);
 
     inputCor = new JTextField("");
@@ -121,8 +121,8 @@ public class TelaCadastrarVeiculo extends JFrame {
     // Placa
 
     JLabel textoPlaca = new JLabel("Placa: ");
-    textoPlaca.setBounds(190, 430, 250, 70);
-    textoPlaca.setFont(new Font("SansSerif", Font.ITALIC, 15));
+    textoPlaca.setBounds(195, 430, 250, 70);
+    textoPlaca.setFont(new Font("SansSerif", Font.BOLD, 18));
     add(textoPlaca);
 
     inputPlaca = new JTextField("");
@@ -134,13 +134,26 @@ public class TelaCadastrarVeiculo extends JFrame {
 
     JLabel textoRenavam = new JLabel("Renavam: ");
     textoRenavam.setBounds(160, 480, 250, 70);
-    textoRenavam.setFont(new Font("SansSerif", Font.ITALIC, 15));
+    textoRenavam.setFont(new Font("SansSerif", Font.BOLD, 18));
     add(textoRenavam);
 
     inputRenavam = new JTextField("");
     inputRenavam.setBounds(250, 500, 250, 35);
     inputRenavam.setFont(new Font("SansSerif", Font.ITALIC, 15));
     add(inputRenavam);
+
+    // Tipo Combustível
+
+    JLabel textoCombustivel = new JLabel("Combustível: ");
+    textoCombustivel.setBounds(130, 530, 250, 70);
+    textoCombustivel.setFont(new Font("SansSerif", Font.BOLD, 18));
+    add(textoCombustivel);
+
+    String[] combustiveis = {"Gasolina", "Álcool", "Flex", "Diesel"};
+    tipoCombustivel = new JComboBox<>(combustiveis);
+    tipoCombustivel.setBounds(250, 550, 250, 35);
+    tipoCombustivel.setFont(new Font("SansSerif", Font.ITALIC, 15));
+    add(tipoCombustivel);    
 
     // Botão Cadastrar Veiculo
 
@@ -188,33 +201,28 @@ public class TelaCadastrarVeiculo extends JFrame {
 
             JOptionPane.showMessageDialog(null, "Preencha os campos corretamente", "Informação", 0);
         }else{
-            // Verificar se entrou números nos inputs int
-            if (!inputAnoFabricacao.getText().matches("\\d+") || !inputAnoModelo.getText().matches("\\d+") || !inputCapacidadeTanque.getText().matches("\\d+")) {
-                JOptionPane.showMessageDialog(null, "Os campos Ano de Fabricação, Ano do Modelo e Capacidade Tanque devem conter apenas números.", "Erro", JOptionPane.ERROR_MESSAGE);
+       
+            if (!inputAnoFabricacao.getText().matches("\\d+") || !inputAnoModelo.getText().matches("\\d+") || !inputMotorizacao.getText().matches("\\d+(\\.\\d+)?") || !inputCapacidadeTanque.getText().matches("\\d+")) {
+                JOptionPane.showMessageDialog(null, "Os campos Ano de Fabricação, Ano do Modelo, Motorização e Capacidade Tanque devem conter apenas números.", "Erro", JOptionPane.ERROR_MESSAGE);
                 return; 
             }            
-
-            // Cria um novo objeto Veiculo com os valores dos campos de entrada
             
             Veiculo novoVeiculo = new Veiculo(
                 inputMarca.getText(),
                 inputModelo.getText(),
                 Integer.parseInt(inputAnoFabricacao.getText()), 
                 Integer.parseInt(inputAnoModelo.getText()), 
-                inputMotorizacao.getText(),
+                Double.parseDouble(inputMotorizacao.getText()),
                 Double.parseDouble(inputCapacidadeTanque.getText()), 
+                tipoCombustivel.getSelectedItem().toString(),
                 inputCor.getText(),
                 inputPlaca.getText(),
                 inputRenavam.getText()
             );
 
-
-            // Adiciona o novo veículo à lista de veículos
             MenuPrincipal.listaVeiculos.add(novoVeiculo);
 
-            // Mensagem de sucesso
             JOptionPane.showMessageDialog(null,novoVeiculo, "Veículo cadastrado com sucesso \nDados Veículo:",JOptionPane.INFORMATION_MESSAGE);
-            //new TelaListaVeiculos( MenuPrincipal.listaVeiculos);
             new MenuPrincipal();
             dispose(); 
         }
