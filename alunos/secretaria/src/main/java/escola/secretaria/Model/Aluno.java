@@ -1,11 +1,14 @@
 package escola.secretaria.Model;
 
+import escola.secretaria.Enum.Sexo;
 import escola.secretaria.Enum.Turma;
 import escola.secretaria.Enum.Turnos;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -17,15 +20,13 @@ import jakarta.validation.constraints.Size;
 public class Aluno {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Matricula")
     @NotNull
-    @Size(min = 3, max=50, message="A matricula deve conter entre 5 e 50 caracteres.")
-    private Long matricula;
+    private long matricula;
 
     @Column(name = "Nome")
-    @Size(min = 3, max=50, message="O nome deve conter entre 3 e 50 caracteres.")
-    @NotBlank(message = "O nome não pode ser vazio.")
+    @NotBlank(message = "O nome não pode ser vazio")
     @NotNull
     private String nome;
 
@@ -41,13 +42,12 @@ public class Aluno {
 
     @Column(name = "Idade")
     @NotNull
-    @NotBlank(message = "Forneça a idade")
-    private int Idade;
+    private int idade;
 
     @Column(name = "Sexo")
     @NotNull
-    @NotBlank(message= "Forneça o sexo")
-    private String sexo;
+    @Enumerated(EnumType.STRING)
+    private Sexo sexo;
 
     public String getNome() {
         return nome;
@@ -82,20 +82,21 @@ public class Aluno {
     }
 
     public int getIdade() {
-        return Idade;
+        return idade;
     }
 
     public void setIdade(int idade) {
-        Idade = idade;
+        this.idade = idade;
     }
 
-    public String getSexo() {
+    public Sexo getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(Sexo sexo) {
         this.sexo = sexo;
     }
 
-    
+
+
 }

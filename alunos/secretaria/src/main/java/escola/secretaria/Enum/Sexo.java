@@ -1,14 +1,12 @@
 package escola.secretaria.Enum;
 
 public enum Sexo {
-    MASC("masculino"),
+    MASC("Masculino"),
     FEM("Feminino");
 
-    private String Sexo;
+    private String sexo;
 
     private Sexo(String sexo){
-        this.Sexo = sexo;
-
+        this.sexo = sexo;
     }
-
 }
