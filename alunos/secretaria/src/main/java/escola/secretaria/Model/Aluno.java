@@ -6,8 +6,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -19,8 +17,11 @@ import jakarta.validation.constraints.Size;
 public class Aluno {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "Matricula")
+    @NotNull
+    @Size(min = 3, max=50, message="A matricula deve conter entre 5 e 50 caracteres.")
+    private Long matricula;
 
     @Column(name = "Nome")
     @Size(min = 3, max=50, message="O nome deve conter entre 3 e 50 caracteres.")
@@ -28,17 +29,12 @@ public class Aluno {
     @NotNull
     private String nome;
 
-    @Column(name = "Matricula")
-    @NotNull
-    @Size(min = 5, max=50, message="A matricula deve conter entre 5 e 50 caracteres.")
-    private String matricula;
-
     @Column(name = "Turno")
     @Enumerated(EnumType.STRING)
     @NotNull
     private Turnos turnos;
 
-    @Column(name = "Tuma")
+    @Column(name = "Turma")
     @Enumerated(EnumType.STRING)
     @NotNull
     private Turma turma;
@@ -51,17 +47,7 @@ public class Aluno {
     @Column(name = "Sexo")
     @NotNull
     @NotBlank(message= "Forneça o sexo")
-
-    
     private String sexo;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
@@ -71,11 +57,11 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public String getMatricula() {
+    public long getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(String matricula) {
+    public void setMatricula(long matricula) {
         this.matricula = matricula;
     }
 
