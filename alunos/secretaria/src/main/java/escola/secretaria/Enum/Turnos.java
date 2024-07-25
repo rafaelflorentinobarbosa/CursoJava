@@ -2,7 +2,7 @@ package escola.secretaria.Enum;
 
 public enum Turnos {
     MATUTINO("Matutino"),
-    VESPERTINO ("Vespertino"),
+    VESPERTINO("Vespertino"),
     NOTURNO("Noturno"),
     INTEGRAL("Integral");
 
