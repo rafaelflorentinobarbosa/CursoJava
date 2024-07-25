@@ -1,8 +1,8 @@
-import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.List;
+import javax.swing.*;
+import javax.swing.border.Border;
 
 public class TelaListaVeiculos extends JFrame {
 
@@ -10,7 +10,6 @@ public class TelaListaVeiculos extends JFrame {
 
     public TelaListaVeiculos(List<Veiculo> listaVeiculos) {
       
-
       setTitle("Veículos Cadastrados");
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setSize(600, 200);
@@ -18,11 +17,9 @@ public class TelaListaVeiculos extends JFrame {
       setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
       setVisible(true);
 
-        // Primeira linha: texto "Veículos Cadastrados"
         JLabel labelTitulo = new JLabel("Veículos Cadastrados", SwingConstants.CENTER);
         add(labelTitulo);
-
-        // Segunda linha: nome veiculo, placa e 3 botões  
+    
         if(MenuPrincipal.listaVeiculos.isEmpty()){
 
             JLabel headerLabel = new JLabel("Nenhum Veículos Cadastrado");
@@ -45,42 +42,45 @@ public class TelaListaVeiculos extends JFrame {
                 buttonDespesas.setBackground(new Color(10, 10, 10));
                 buttonDespesas.setForeground(Color.WHITE);
                 buttonDespesas.setHorizontalAlignment(SwingConstants.CENTER);
-                buttonDespesas.addActionListener(this::voltar); 
+                buttonDespesas.addActionListener(e -> despesa());
                 buttonDespesas.setFocusable(false);
                 buttonDespesas.setBorder(border);
-
-                JButton buttonMedia = new JButton("Consumo");
-                buttonMedia.setBackground(new Color(10, 10, 10));
-                buttonMedia.setForeground(Color.WHITE);
-                buttonMedia.setHorizontalAlignment(SwingConstants.CENTER);
-                buttonMedia.addActionListener(this::voltar); 
-                buttonMedia.setFocusable(false);
-                buttonMedia.setBorder(border);
 
                 JButton buttonAbastecer = new JButton("Abastecer");
                 buttonAbastecer.setBackground(new Color(10, 10, 10));
                 buttonAbastecer.setForeground(Color.WHITE);
-                buttonAbastecer.setHorizontalAlignment(SwingConstants.CENTER);
-                buttonAbastecer.addActionListener(this::voltar); 
+                buttonAbastecer.setHorizontalAlignment(SwingConstants.CENTER); 
                 buttonAbastecer.setFocusable(false);
                 buttonAbastecer.setBorder(border);
+                buttonAbastecer.addActionListener(e -> abastecer(veiculo));
 
                 panelMeio.add(veiculoLabel);
                 panelMeio.add(buttonDespesas);
-                panelMeio.add(buttonMedia);
+
+                if (veiculo.getAbastecimentos().size() >= 2) {
+                    JButton buttonMedia = new JButton("Consumo");
+                    buttonMedia.setBackground(new Color(10, 10, 10));
+                    buttonMedia.setForeground(Color.WHITE);
+                    buttonMedia.setHorizontalAlignment(SwingConstants.CENTER);
+                    buttonMedia.addActionListener(e -> consumo(veiculo));
+                    buttonMedia.setFocusable(false);
+                    buttonMedia.setBorder(border);
+                    panelMeio.add(buttonMedia);
+                }
+                
                 panelMeio.add(buttonAbastecer);
 
                 add(panelMeio);
                 pack();
 
-                // Define a largura para 600 e mantém a altura ajustada dinamicamente
+               
                 Dimension size = getSize();
                 size.width = 600;
                 setSize(size);        
             }
 
     }
-      // Terceira linha: botão "Voltar"
+    
       JButton buttonVoltar = new JButton("Voltar");
       buttonVoltar.setBounds(350, 600, 250, 70); 
       buttonVoltar.setFont(new Font("SansSerif", Font.BOLD, 15));
@@ -100,6 +100,19 @@ public void voltar(ActionEvent actionEvent) {
     dispose(); 
 } 
 
+public void abastecer(Veiculo veiculo) {
+    dispose();
+    new TelaRegistrarAbastecimento(veiculo);  
+}
 
+public void consumo(Veiculo veiculo) {
+    veiculo.mostrarMediaKmPorLitro();
+}
+
+public void despesa( ) {
+    dispose();
+    new TelaListarDespesas();  
+    
+}
 
 }

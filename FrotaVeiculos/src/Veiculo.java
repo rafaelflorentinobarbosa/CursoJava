@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 public class Veiculo {
     private String marca;
     private String modelo; 
@@ -9,8 +13,8 @@ public class Veiculo {
     private String cor;
     private String placa; 
     private String renavam;
-
-
+    private List<Abastecimento> abastecimentos; 
+    
     public Veiculo(String marca, String modelo, int anoFabricacao, int anoModelo, double motorizacao,
         double capacidadeTanque, String tipoCombustivel, String cor, String placa, String renavam) {
         setMarca(marca);
@@ -23,6 +27,7 @@ public class Veiculo {
         setCor(cor);
         setPlaca(placa);
         setRenavam(renavam);
+        abastecimentos = new ArrayList<>();
     }
 
     @Override
@@ -31,6 +36,39 @@ public class Veiculo {
                 + getAnoModelo() + ", \nmotorizacao = " + getMotorizacao() + ", \ncapacidadeTanque = " + getCapacidadeTanque() + ", \ntipoCombustivel = " + getTipoCombustivel() + ", \ncor = " + getCor()
                 + ", \nplaca = " + getPlaca() + ", \nrenavam = " + getRenavam() + "]";
     }
+
+    public void registrarAbastecimento(double valorAbastecido, double quantidadeCombustivel, double quilometragem) {
+        Abastecimento abastecimento = new Abastecimento(valorAbastecido, quantidadeCombustivel, quilometragem);
+        abastecimentos.add(abastecimento);
+    }
+
+     public void mostrarMediaKmPorLitro() {
+        if (abastecimentos == null || abastecimentos.size() < 2) {
+            JOptionPane.showMessageDialog(null, "Não há dados suficientes para calcular a média!", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Ordena a lista de abastecimentos por quilometragem (opcional, se não estiver ordenada)
+        abastecimentos.sort((a, b) -> Double.compare(a.getQuilometragem(), b.getQuilometragem()));
+
+        // Calcula a distância total percorrida
+        double distanciaTotal = abastecimentos.get(abastecimentos.size() - 1).getQuilometragem() - abastecimentos.get(0).getQuilometragem();
+
+        // Calcula o total de combustível abastecido
+        double totalCombustivel = 0;
+        for (Abastecimento abastecimento : abastecimentos) {
+            totalCombustivel += abastecimento.getQuantidadeCombustivel();
+        }
+
+        // Calcula a média de km por litro
+        double mediaKmPorLitro = distanciaTotal / totalCombustivel;
+
+        // Exibe o resultado
+        JOptionPane.showMessageDialog(null, String.format("Média de km por litro: %.2f km/l", mediaKmPorLitro),
+                "Média de Consumo", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+        
 
     public String getMarca() {
         return marca;
@@ -93,6 +131,10 @@ public class Veiculo {
 
     public void setTipoCombustivel(String tipoCombustivel) {
         this.tipoCombustivel = tipoCombustivel;
+    }
+
+    public List<Abastecimento> getAbastecimentos() {
+        return abastecimentos;
     } 
 
     
