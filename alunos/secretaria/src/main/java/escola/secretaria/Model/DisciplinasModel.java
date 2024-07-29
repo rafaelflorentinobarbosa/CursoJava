@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
+
 @Entity
 @Table(name = "Disciplinas")
 public class DisciplinasModel {
@@ -39,6 +40,8 @@ public class DisciplinasModel {
 
     public void setDisciplinas(Disciplinas disciplinas) {
         this.disciplinas = disciplinas;
-    }  
+    }
 
+
+    
 }

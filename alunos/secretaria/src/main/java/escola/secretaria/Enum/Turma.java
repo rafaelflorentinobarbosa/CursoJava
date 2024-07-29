@@ -4,12 +4,13 @@ public enum Turma {
     A("A"),
     B("B"),
     C("C"),
-    D("D");
+    D("D"),
+    E("E");
 
-    private String turmas;
+    private String turma;
 
     private Turma(String turma){
-        this.turmas = turma;
+        this.turma = turma;
     }
 
 }
