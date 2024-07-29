@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.border.Border;
-
 import model.Veiculo;
 
 public class TelaListarVeiculos extends JFrame {
@@ -64,7 +63,7 @@ public class TelaListarVeiculos extends JFrame {
                 buttonDespesas.setBackground(new Color(10, 10, 10));
                 buttonDespesas.setForeground(Color.WHITE);
                 buttonDespesas.setHorizontalAlignment(SwingConstants.CENTER);
-                buttonDespesas.addActionListener(e -> despesa());
+                buttonDespesas.addActionListener(e -> despesa(veiculo));
                 buttonDespesas.setFocusable(false);
                 buttonDespesas.setBorder(border);
 
@@ -136,8 +135,8 @@ public class TelaListarVeiculos extends JFrame {
         veiculo.mostrarMediaKmPorLitro();
     }
 
-    public void despesa() {
+    public void despesa(Veiculo veiculo) {
         dispose();
-        // new TelaListarDespesas();
+        new TelaDespesa(veiculo);
     }
 }
