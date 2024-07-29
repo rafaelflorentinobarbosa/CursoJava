@@ -12,7 +12,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
-
 import model.Veiculo;
 
 public class TelaCadastrarVeiculo extends JFrame {
@@ -205,8 +204,8 @@ public class TelaCadastrarVeiculo extends JFrame {
         } else {
             // Só aceita números e valores positivos nesses campos
             if (!inputAnoFabricacao.getText().matches("\\d+") || !inputAnoModelo.getText().matches("\\d+") || 
-                !inputMotorizacao.getText().matches("\\d+(\\.\\d+)?") || !inputCapacidadeTanque.getText().matches("\\d+")) {
-                JOptionPane.showMessageDialog(null, "Os campos Ano de Fabricação, Ano do Modelo, Motorização e Capacidade Tanque devem conter apenas números.", "Erro", JOptionPane.ERROR_MESSAGE);
+                !inputMotorizacao.getText().matches("\\d+(\\.\\d+)?") || !inputCapacidadeTanque.getText().matches("\\d+") || !inputRenavam.getText().matches("\\d+")) {
+                JOptionPane.showMessageDialog(null, "Os campos Ano de Fabricação, Ano do Modelo, Motorização, Capacidade Tanque e Renavam devem conter apenas números positivos.", "Erro", JOptionPane.ERROR_MESSAGE);
                 return; 
             }            
             

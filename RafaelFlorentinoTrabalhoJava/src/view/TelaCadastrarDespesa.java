@@ -1,22 +1,21 @@
 package view;
 
-import javax.swing.JFrame;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.border.Border;
-
+import javax.swing.border.Border; // Assumindo que há uma classe Veiculo
 import model.Despesa;
-import model.Veiculo; // Assumindo que há uma classe Veiculo
-import java.awt.Color;
-import java.awt.Font;
+import model.Veiculo;
 
 public class TelaCadastrarDespesa extends JFrame{
 
@@ -148,7 +147,7 @@ public class TelaCadastrarDespesa extends JFrame{
         }else{
             
             if (!inputValorDespesa.getText().matches("\\d+")) {
-                JOptionPane.showMessageDialog(null, "Os campos Valor deve conter apenas números.", "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Os campos Valor deve conter apenas números positivos.", "Erro", JOptionPane.ERROR_MESSAGE);
                 return; 
             }            
             
