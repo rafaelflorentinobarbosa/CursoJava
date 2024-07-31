@@ -1,6 +1,7 @@
 package escola.secretaria.Model;
 
-import jakarta.persistence.CascadeType;
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,80 +10,67 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Resultados")
-public class Resultados {
+public class Resultados implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Id RES")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "IdRES")
     private long idRes;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Matricula", referencedColumnName = "Matricula")
+    @OneToOne
+    @JoinColumn(name = "matricula")
     private Aluno matricula;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Id Disciplina", referencedColumnName = "Id Disciplina")
+    @OneToOne
+    @JoinColumn(name = "IdDisciplina")
     private DisciplinasModel idDis;
 
     @Column(name  = "PriNota")
-    @NotBlank
-    @NotNull
     private double priNota;
 
     @Column(name  = "SegNota")
-    @NotBlank
-    @NotNull
     private double segNota;
 
     @Column(name  = "TerNota")
-    @NotBlank
-    @NotNull
     private double terNota;
 
     @Column(name  = "QuaNota")
-    @NotBlank
-    @NotNull
     private double quaNota;
 
     @Column(name  = "Media")
-    @NotBlank
-    @NotNull
     private double media;
+
+    @Column(name  = "status")
+    private String status;
+    
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public void resultado(double pri, double seg, double ter, double qua){
         double media = 0.0;
-        media= (pri + seg + ter + qua)/4;
+        media = (pri + seg + ter + qua)/4;
         setMedia(media);
     }
 
-
-    public long getIdRes() {
-        return idRes;
-    }
-
-    public void setIdRes(long idRes) {
-        this.idRes = idRes;
-    }
-
-    public Aluno getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(Aluno matricula) {
-        this.matricula = matricula;
-    }
-
-    public DisciplinasModel getIdDis() {
-        return idDis;
-    }
-
-    public void setIdDis(DisciplinasModel idDis) {
-        this.idDis = idDis;
+    public void statusNota(){
+        media = getMedia();
+        String status;
+        if(media >=6){
+            setStatus("Aprovado");
+        }else if(media >=5 && media <=5.9){
+            setStatus("Recuperação");
+        }
+        else{
+            setStatus("Reprovado");
+        }        
     }
 
     public double getPriNota() {
@@ -120,10 +108,32 @@ public class Resultados {
     public double getMedia() {
         return media;
     }
-
     public void setMedia(double media) {
         this.media = media;
     }
 
-    
+    public long getIdRes() {
+        return idRes;
+    }
+
+    public void setIdRes(long idRes) {
+        this.idRes = idRes;
+    }
+
+    public Aluno getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(Aluno matricula) {
+        this.matricula = matricula;
+    }
+
+    public DisciplinasModel getIdDis() {
+        return idDis;
+    }
+
+    public void setIdDis(DisciplinasModel idDis) {
+        this.idDis = idDis;
+    }
+
 }

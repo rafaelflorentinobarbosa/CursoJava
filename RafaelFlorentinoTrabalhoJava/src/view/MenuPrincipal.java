@@ -37,8 +37,6 @@ public class MenuPrincipal extends JFrame {
         listaDespesas.add(new Despesa("Manutenção do Carro", 350.00f, "DEF5678", "Manutenção", "Troca de óleo e filtro"));
         listaDespesas.add(new Despesa("Seguro do Carro", 500.00f, "DEF5678", "Outros", "Mensalidade do seguro do carro"));
 
-        
-
         // Configurações do Frame
 
         setTitle("Gerenciador de Frota");
@@ -119,8 +117,7 @@ public class MenuPrincipal extends JFrame {
 
     public void cadastrarVeiculo(ActionEvent actionEvent) {
         new TelaCadastrarVeiculo();
-        dispose(); 
-    
+        dispose();  
     }
 
     private void listarVeiculo(ActionEvent actionEvent){
