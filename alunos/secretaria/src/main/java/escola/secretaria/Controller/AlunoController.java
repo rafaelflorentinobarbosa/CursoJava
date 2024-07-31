@@ -14,10 +14,6 @@ import escola.secretaria.Model.Resultados;
 import escola.secretaria.Repository.AlunoRepository;
 import escola.secretaria.Repository.DisciplinaRepository;
 import escola.secretaria.Repository.ResultadosRepository;
-import org.springframework.web.bind.annotation.RequestParam;
-
-
-
 
 
 @RestController
@@ -75,8 +71,6 @@ public class AlunoController {
     public List<Resultados> statusNotas(){
         return resultadoRepository.findAll();
     }
-    
-    
     
 
 }
