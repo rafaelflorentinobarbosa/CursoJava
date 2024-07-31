@@ -1,5 +1,7 @@
 package escola.secretaria.Model;
 
+import java.io.Serializable;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import escola.secretaria.Enum.Sexo;
@@ -10,18 +12,21 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "Alunos")
-public class Aluno {
+public class Aluno implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,10 +34,9 @@ public class Aluno {
     @NotNull
     private long matricula;
 
-    @JsonBackReference
-    @OneToOne(mappedBy = "matricula", cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    private Resultados resultados;
+    @OneToOne(mappedBy = "matricula", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    private Resultados resultadosAlu;
+
 
     @Column(name = "Nome")
     @NotBlank(message = "O nome não pode ser vazio")
@@ -116,11 +120,11 @@ public class Aluno {
     }
 
     public Resultados getResultados() {
-        return resultados;
+        return resultadosAlu;
     }
 
-    public void setResultados(Resultados resultados) {
-        this.resultados = resultados;
+    public void setResultados(Resultados resultadosAlu) {
+        this.resultadosAlu = resultadosAlu;
     }
 
 

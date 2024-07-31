@@ -14,6 +14,10 @@ import escola.secretaria.Model.Resultados;
 import escola.secretaria.Repository.AlunoRepository;
 import escola.secretaria.Repository.DisciplinaRepository;
 import escola.secretaria.Repository.ResultadosRepository;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
+
 
 
 @RestController
@@ -55,9 +59,11 @@ public class AlunoController {
         return disciplinaRepository.findAll();
     }
     
+
     @PostMapping("/lancarnotas")
     public Resultados inserirNotas(@RequestBody Resultados resultados){
         resultados.resultado(resultados.getPriNota(), resultados.getSegNota(), resultados.getTerNota(), resultados.getQuaNota());
+        resultados.statusNota();
         return resultadoRepository.save(resultados);
     }
     @GetMapping("/vernotas")
@@ -69,16 +75,8 @@ public class AlunoController {
     public List<Resultados> statusNotas(){
         return resultadoRepository.findAll();
     }
+    
+    
+    
 
 }
-
-/*
- * // http://localhost:8080/inseriraluno
-{
-  "nome": "João Silva",
-  "turnos": "MATUTINO",
-  "turma": "A",
-  "idade": 17,
-  "sexo": "MASC"
-}
- */

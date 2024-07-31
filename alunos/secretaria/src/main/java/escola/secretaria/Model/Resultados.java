@@ -2,12 +2,14 @@ package escola.secretaria.Model;
 
 import java.io.Serializable;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -20,12 +22,14 @@ public class Resultados implements Serializable {
     @Column(name = "IdRES")
     private long idRes;
 
-    @OneToOne
+    
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "matricula")
     private Aluno matricula;
 
+    
     @OneToOne
-    @JoinColumn(name = "IdDisciplina")
+    @JoinColumn(name = "idDis")
     private DisciplinasModel idDis;
 
     @Column(name  = "PriNota")
@@ -34,47 +38,19 @@ public class Resultados implements Serializable {
     @Column(name  = "SegNota")
     private double segNota;
 
-    @Column(name  = "TerNota")
-    private double terNota;
+    public double getPriNota() {
+        return priNota;
+    }
 
-    @Column(name  = "QuaNota")
-    private double quaNota;
-
-    @Column(name  = "Media")
-    private double media;
-
-    @Column(name  = "status")
+    @Column(name = "status")
     private String status;
-    
+
     public String getStatus() {
         return status;
     }
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public void resultado(double pri, double seg, double ter, double qua){
-        double media = 0.0;
-        media = (pri + seg + ter + qua)/4;
-        setMedia(media);
-    }
-
-    public void statusNota(){
-        media = getMedia();
-        String status;
-        if(media >=6){
-            setStatus("Aprovado");
-        }else if(media >=5 && media <=5.9){
-            setStatus("Recuperação");
-        }
-        else{
-            setStatus("Reprovado");
-        }        
-    }
-
-    public double getPriNota() {
-        return priNota;
     }
 
     public void setPriNota(double priNota) {
@@ -108,9 +84,25 @@ public class Resultados implements Serializable {
     public double getMedia() {
         return media;
     }
+    public void resultado(double pri, double seg, double ter, double qua){
+        double media = 0.0;
+        media = (pri + seg + ter + qua)/4;
+        setMedia(media);
+    }
+
     public void setMedia(double media) {
         this.media = media;
     }
+
+    @Column(name  = "TerNota")
+    private double terNota;
+
+    @Column(name  = "QuaNota")
+    private double quaNota;
+
+    @Column(name  = "Media")
+    private double media;
+
 
     public long getIdRes() {
         return idRes;
@@ -134,6 +126,18 @@ public class Resultados implements Serializable {
 
     public void setIdDis(DisciplinasModel idDis) {
         this.idDis = idDis;
+    }
+
+    public void statusNota(){
+        double media = getMedia();
+        
+        if(media>=6)
+            setStatus("Aprovado");
+        else if(media>= 5 && media<=5.9)
+            setStatus("Recuperação");
+        else
+            setStatus("Repovrado");
+
     }
 
 }
