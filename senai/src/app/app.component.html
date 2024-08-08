@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h2>Meu código javaScript</h2>
+  <h4 id="botao">Botão</h4>
+  <button type="button" onclick="document.getElementById('botao').innerHTML = Date()">Clique aqui para uma surpresa.</button>
+
+  <h1>Meu Formulário</h1>
+
+  <form id="formulario">
+      <label for="entrada">Nome</label>
+      <input type="text" id="entrada" name="entrada">
+      <button type="button" onclick="mostrarValor()">Mostrar Valor</button>
+  </form>
+
+  <p id="resultado"></p>
+
+
+</body>
+
+<script>
+  function mostrarValor() {
+      var valor = document.getElementById('entrada').value;
+      document.getElementById('resultado').innerText = 'Você digitou: ' + valor;
+  }
+</script>
+</html>

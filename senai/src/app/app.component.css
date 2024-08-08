@@ -1,0 +1,18 @@
+*{
+    text-align: center;
+}
+body{
+    background-color: lightblue;
+}
+h1{
+    text-transform: uppercase;
+    color: blue;
+} 
+h2{
+    color: red;
+}
+h4{
+    color:rebeccapurple;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
