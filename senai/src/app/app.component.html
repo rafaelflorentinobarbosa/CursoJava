@@ -16,18 +16,11 @@
   <form id="formulario">
       <label for="entrada">Nome</label>
       <input type="text" id="entrada" name="entrada">
-      <button type="button" onclick="mostrarValor()">Mostrar Valor</button>
+      <button type="button" onclick="document.getElementById('resultado').innerText = entrada.value">Mostrar Valor</button>
   </form>
 
   <p id="resultado"></p>
 
-
 </body>
 
-<script>
-  function mostrarValor() {
-      var valor = document.getElementById('entrada').value;
-      document.getElementById('resultado').innerText = 'Você digitou: ' + valor;
-  }
-</script>
 </html>
