@@ -1,9 +1,11 @@
-p,h1,h2,label,form, button{
+
+
+/* p,h1,h2,label,form, button{
     text-align: center;
 }
-body{
-    background-color: lightblue;
-}
+*{
+    background-color: lightgray;
+}   
 h1{
     text-transform: uppercase;
     color: blue;
@@ -32,5 +34,5 @@ input:hover, input:focus{
     box-shadow: 5px 0px 10px coral;
     background-color: chocolate;
     color: red;
-}
+} */
 
