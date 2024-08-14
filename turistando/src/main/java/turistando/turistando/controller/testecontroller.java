@@ -9,7 +9,7 @@ public class testecontroller {
 
     @GetMapping("/teste")
     public String teste() {
-        return "Hello world";
+        return "Aplicação está rodando";
     }
     
 }

@@ -18,6 +18,7 @@ public class VeiculoModel {
     private long renavam;
     private double motorizacao;
     private double capacidadeTanque;
+    
     private CombustivelEnum combustivel;
 
     public String getPlaca() {
