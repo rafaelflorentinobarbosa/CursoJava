@@ -1,7 +1,20 @@
 package turistando.turistando.model;
 
-public class DespesaModel {
+import java.io.Serializable;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_despesas")
+public class DespesaModel implements Serializable{
     
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private int id;
     private String nome;
     private float valor;
     private String placa;
@@ -37,6 +50,12 @@ public class DespesaModel {
     }
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 
     

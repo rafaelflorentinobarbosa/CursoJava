@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import turistando.turistando.model.VeiculoModel;
 import turistando.turistando.repository.VeiculoRepository;
 
-
 @RestController
 public class VeiculoController {
 
@@ -37,8 +36,8 @@ public class VeiculoController {
     }
 
     @DeleteMapping("apagarveiculo/{id}")
-        public void apagaVeiculo(@PathVariable String id) {
-             veiculoRepository.deleteById(id);
-        }
-           
+    public void apagaVeiculo(@PathVariable String id) {
+        veiculoRepository.deleteById(id);
+    }
+   
 }

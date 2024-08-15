@@ -1,15 +1,19 @@
 package turistando.turistando.model;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import turistando.turistando.enuns.CombustivelEnum;
 
 @Entity
-public class VeiculoModel {
+@Table(name = "tb_veiculo")
+public class VeiculoModel implements Serializable {
 
     @Id
     private String placa;
-    
     private String marca;
     private String modelo;
     private int anoModelo;
@@ -18,9 +22,27 @@ public class VeiculoModel {
     private long renavam;
     private double motorizacao;
     private double capacidadeTanque;
-    
     private CombustivelEnum combustivel;
 
+    @OneToOne
+    private AbastecimentoModel abastecimentos;
+
+    @OneToOne
+    private DespesaModel despesas;
+
+    
+    public AbastecimentoModel getAbastecimentos() {
+        return abastecimentos;
+    }
+    public void setAbastecimentos(AbastecimentoModel abastecimentos) {
+        this.abastecimentos = abastecimentos;
+    }
+    public DespesaModel getDespesas() {
+        return despesas;
+    }
+    public void setDespesas(DespesaModel despesas) {
+        this.despesas = despesas;
+    }
     public String getPlaca() {
         return placa;
     }
