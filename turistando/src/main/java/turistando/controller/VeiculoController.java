@@ -1,4 +1,4 @@
-package turistando.turistando.controller;
+package turistando.controller;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import turistando.turistando.model.VeiculoModel;
-import turistando.turistando.repository.VeiculoRepository;
+import turistando.model.VeiculoModel;
+import turistando.repository.VeiculoRepository;
 
 @RestController
 public class VeiculoController {

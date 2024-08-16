@@ -1,4 +1,4 @@
-package turistando.turistando.model;
+package turistando.model;
 
 import java.io.Serializable;
 
@@ -6,7 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import turistando.turistando.enuns.CombustivelEnum;
+import turistando.enuns.CombustivelEnum;
 
 @Entity
 @Table(name = "tb_veiculo")
@@ -30,7 +30,6 @@ public class VeiculoModel implements Serializable {
     @OneToOne
     private DespesaModel despesas;
 
-    
     public AbastecimentoModel getAbastecimentos() {
         return abastecimentos;
     }

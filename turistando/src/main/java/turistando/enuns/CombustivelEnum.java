@@ -1,4 +1,4 @@
-package turistando.turistando.enuns;
+package turistando.enuns;
 
 public enum CombustivelEnum {
     Gasolina,

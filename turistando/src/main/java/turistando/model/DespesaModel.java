@@ -1,4 +1,4 @@
-package turistando.turistando.model;
+package turistando.model;
 
 import java.io.Serializable;
 
