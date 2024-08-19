@@ -7,3 +7,13 @@ public enum CombustivelEnum {
     GNV,
     Flex;
 }
+
+/*
+ *    
+    public boolean accepts(TipoCombustiveis tipoCombustivel) {
+        if (this == Flex) {
+            return tipoCombustivel == TipoCombustiveis.Alcool; || tipoCombustivel == TipoCombustiveis.Gasolina 
+        }
+        return this.name().equals(tipoCombustivel.name());
+    }
+ */
