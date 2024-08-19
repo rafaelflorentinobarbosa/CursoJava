@@ -4,12 +4,17 @@ import { CadastrarVeiculoComponent } from './pages/cadastrar-veiculo/cadastrar-v
 import { HomeComponent } from './pages/home/home.component';
 import { CadastrarDespesaComponent } from './pages/cadastrar-despesa/cadastrar-despesa.component';
 import { ListarDespesasComponent } from './pages/listar-despesas/listar-despesas.component';
+import { ListarVeiculosComponent } from './pages/listar-veiculos/listar-veiculos.component';
 
 export const routes: Routes = [
     {
         path: '',
         component: HomeComponent
     },  
+    {
+        path: 'home',
+        component: HomeComponent
+    },   
     {
         path: 'menu',
         component: MenuComponent
@@ -24,7 +29,7 @@ export const routes: Routes = [
     },    
     {
         path: 'listarVeiculos',
-        component: ListarDespesasComponent
+        component: ListarVeiculosComponent
     },    
     {
         path: 'listarDespesas',
