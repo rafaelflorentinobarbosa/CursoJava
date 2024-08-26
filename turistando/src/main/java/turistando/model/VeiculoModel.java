@@ -3,9 +3,14 @@ package turistando.model;
 import java.io.Serializable;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import turistando.enuns.CombustivelEnum;
 
 @Entity
@@ -13,15 +18,40 @@ import turistando.enuns.CombustivelEnum;
 public class VeiculoModel implements Serializable {
 
     @Id
+    @NotNull(message = "O campo não pode ser nulo")
     private String placa;
+
+    @NotNull(message = "Marca não pode ser nula")
     private String marca;
+
+    @NotNull(message = "Modelo não pode ser nulo")
     private String modelo;
+
+    @NotNull(message = "Ano do modelo não pode ser nulo")
+    @Min(value = 1886, message = "Ano do modelo deve ser maior ou igual a 1886")
     private int anoModelo;
+
+    @NotNull(message = "Ano de fabricação não pode ser nulo")
+    @Min(value = 1886, message = "Ano de fabricação deve ser maior ou igual a 1886")
     private int anoFabricacao;
+
+    @NotNull(message = "Cor não pode ser nula")
     private String cor;
+
+    @NotNull(message = "RENAVAM não pode ser nulo")
+    @Min(value = 1, message = "RENAVAM deve ser positivo")
     private long renavam;
+
+    @NotNull(message = "Motorização não pode ser nula")
+    @Positive(message = "Motorização deve ser positiva")
     private double motorizacao;
+
+    @NotNull(message = "Capacidade do tanque não pode ser nula")
+    @Positive(message = "Capacidade do tanque deve ser positiva")
     private double capacidadeTanque;
+
+    @NotNull(message = "Tipo de combustível não pode ser nulo")
+    @Enumerated(EnumType.STRING)
     private CombustivelEnum combustivel;
 
     @OneToOne
