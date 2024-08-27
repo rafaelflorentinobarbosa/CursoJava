@@ -24,7 +24,7 @@ public class DespesaModel implements Serializable{
 
     @NotNull(message = "O valor não pode ser nulo")
     @Min(value = 0, message = "O valor não pode ser negativo")
-    private float valor;
+    private double valor;
 
     @NotBlank(message = "A placa não pode ser vazia")
     private String placa;
@@ -42,10 +42,10 @@ public class DespesaModel implements Serializable{
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public float getValor() {
+    public double getValor() {
         return valor;
     }
-    public void setValor(float valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
     public String getPlaca() {
