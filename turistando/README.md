@@ -10,7 +10,8 @@ http://localhost:8080/cadastrarveiculo
 	"renavam": 8451546,
 	"motorizacao": 3.0,
 	"capacidadeTanque": 45,
-	"combustivel": "Alcool"
+	"combustivel": "Alcool",
+	"quantidadeCombustivel": 30.0
 }
 
 http://localhost:8080/cadastrardespesa
@@ -28,5 +29,6 @@ http://localhost:8080/cadastrarabastecimento
 	"quantidadeCombustivel": 7.0,
 	"quilometragem": 100.0,
 	"tipoCombustivel": "Gasolina",
-	"placa": "OBF4561"
+	"placa": "OBF4562",
+	"data":  "2024-08-26"
 }

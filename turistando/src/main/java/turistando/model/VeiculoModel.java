@@ -50,6 +50,9 @@ public class VeiculoModel implements Serializable {
     @Positive(message = "Capacidade do tanque deve ser positiva")
     private double capacidadeTanque;
 
+    @Positive(message = "Capacidade do tanque deve ser positiva")
+    private double quantidadeCombustivel=0;
+
     @NotNull(message = "Tipo de combustível não pode ser nulo")
     @Enumerated(EnumType.STRING)
     private CombustivelEnum combustivel;
@@ -131,6 +134,12 @@ public class VeiculoModel implements Serializable {
     }
     public void setCombustivel(CombustivelEnum combustivel) {
         this.combustivel = combustivel;
+    }
+    public double getQuantidadeCombustivel() {
+        return quantidadeCombustivel;
+    }
+    public void setQuantidadeCombustivel(double quantidadeCombustivel) {
+        this.quantidadeCombustivel = quantidadeCombustivel;
     }
 
     

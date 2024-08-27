@@ -21,6 +21,7 @@ public class AbastecimentoServices {
     
     public AbastecimentoModel registrarAbastecimento(AbastecimentoModel abastecimento) throws Exception {
 
+
   
     if (abastecimento.getPlaca() == null) {
         throw new Exception("Veículo não informado ou inválido.");
@@ -31,6 +32,7 @@ public class AbastecimentoServices {
     for (VeiculoModel veiculo : veiculos) {
         if (veiculo.getPlaca().equals(abastecimento.getPlaca())) {
             veiculo.setAbastecimentos(abastecimento);
+            
             return abastecimentoRepository.save(abastecimento);
         }
         else{

@@ -1,6 +1,7 @@
 package turistando.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -41,7 +42,16 @@ public class AbastecimentoModel implements Serializable {
     @NotNull(message = "Placa não pode ser nula")
     @Pattern(regexp = "[A-Z0-9]+", message = "Placa deve conter apenas letras e números")
     private String placa;
+
+    @NotNull(message = "Data não pode ser nula")
+    private LocalDate data;
     
+    public LocalDate getData() {
+        return data;
+    }
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
     public double getValorAbastecido() {
         return valorAbastecido;
     }
