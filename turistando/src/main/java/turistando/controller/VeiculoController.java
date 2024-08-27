@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import turistando.model.VeiculoModel;
 import turistando.repository.VeiculoRepository;
+import turistando.services.VeiculoServices;
 
 @RestController
 public class VeiculoController {
@@ -20,10 +21,31 @@ public class VeiculoController {
     @Autowired
     private VeiculoRepository veiculoRepository;
 
+    @Autowired
+    private VeiculoServices veiculoServices;
+
+   
     @PostMapping("/cadastrarveiculo")
-    public VeiculoModel cadastrarVeiculo(@RequestBody VeiculoModel veiculo) {    
-        return veiculoRepository.save(veiculo);
+    public VeiculoModel registrarVeiculo(@RequestBody VeiculoModel veiculo) {
+        try {
+            return veiculoServices.registrarVeiculo(veiculo);
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
     }
+    
+    @PostMapping("/consumoMedio")
+    public double consumoMedio(@RequestBody VeiculoModel veiculo) {
+        try {
+            return veiculoServices.consumoMedio(veiculo);
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+     
+     
+
+
 
     @GetMapping("/mostrarveiculo")
     public List<VeiculoModel> listaVeiculoModel() {

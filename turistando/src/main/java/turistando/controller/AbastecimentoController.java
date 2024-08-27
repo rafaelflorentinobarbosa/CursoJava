@@ -20,10 +20,6 @@ public class AbastecimentoController {
     @Autowired
     private AbastecimentoRepository abastecimentoRepository;
 
-    // @PostMapping("/cadastrarabastecimento")
-    // public AbastecimentoModel cadastrarAbastecimento(@RequestBody AbastecimentoModel abastecimento) {
-    //     return abastecimentoRepository.save(abastecimento);
-    // }
     
     @PostMapping("/cadastrarabastecimento")
     public AbastecimentoModel cadastrarAbastecimento(@RequestBody AbastecimentoModel abastecimento) {

@@ -21,11 +21,7 @@ public class DespesaController {
     @Autowired
     private DespesaServices despesaServices;
 
-    // @PostMapping("/cadastrardespesa")
-    // public DespesaModel cadastrarVeiculo(@RequestBody DespesaModel despesa) {    
-    //     return despesaRepository.save(despesa);
-    // }
-
+  
     @PostMapping("/cadastrardespesa")
     public DespesaModel registrarDespesa(@RequestBody DespesaModel despesa) {
         try {

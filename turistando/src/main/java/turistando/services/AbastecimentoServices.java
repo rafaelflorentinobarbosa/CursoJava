@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import turistando.model.AbastecimentoModel;
 import turistando.model.VeiculoModel;
-//import turistando.model.VeiculoModel;
 import turistando.repository.AbastecimentoRepository;
 import turistando.repository.VeiculoRepository;
 
@@ -76,6 +75,7 @@ public class AbastecimentoServices {
             veiculo.setQuantidadeCombustivel(veiculo.getQuantidadeCombustivel()+ abastecimento.getQuantidadeCombustivel());
             veiculo.setAbastecimentos(abastecimento);
 
+            // Inserir nova despesa em todo novo abastecimento
             // try {
             //     // Cria uma nova despesa
             //     DespesaModel despesa = new DespesaModel();
