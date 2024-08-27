@@ -62,8 +62,25 @@ public class VeiculoServices {
       if(abastecimentos.isEmpty() || abastecimentos.size() < 2){
         throw new Exception("Precisa de no mínimo 2 abastecimentos para calcular a média de consumo.");
       }
+      if(veiculo.getAbastecimentos() == null){
+        throw new Exception("Precisa de no mínimo 2 abastecimentos para calcular a média de consumo.");
+      }
 
-        return 30;
+      double quilometragemTotal = 0;
+      double abastecimentoTotal = 0;
+      double mediaConsumo = 0;
+
+      for (AbastecimentoModel abastecimento : abastecimentos) {
+  
+          if (veiculo.getPlaca().equals(abastecimento.getPlaca())) {
+            quilometragemTotal += abastecimento.getQuilometragem();
+            abastecimentoTotal += abastecimento.getQuantidadeCombustivel();
+            mediaConsumo = abastecimentoTotal/quilometragemTotal;
+          }
+
+          }
+
+        return mediaConsumo;
 
 
     }
